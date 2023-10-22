@@ -8,4 +8,8 @@ This is a simple command line tool to get the cost of your Azure Tenant. It uses
 pip install -r requirements.txt
 ```
 
-[Examples Documentation](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/costmanagement)
+## References
+
+* [Getting started - Managing Consumption using Azure Python SDK](https://learn.microsoft.com/en-us/samples/azure-samples/azure-samples-python-management/costmanagement/)
+
+* [Examples Documentation](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/costmanagement)
