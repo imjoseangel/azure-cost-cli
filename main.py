@@ -24,8 +24,8 @@ def subscription_list():
 
 
 def main():
-    subscription_list()
-
+    # subscription_list()
+    pass
 
 if __name__ == '__main__':
     main()

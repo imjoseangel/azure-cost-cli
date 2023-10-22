@@ -13,3 +13,5 @@ pip install -r requirements.txt
 * [Getting started - Managing Consumption using Azure Python SDK](https://learn.microsoft.com/en-us/samples/azure-samples/azure-samples-python-management/costmanagement/)
 
 * [Examples Documentation](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/costmanagement)
+
+* [Example on Stack Overflow](https://stackoverflow.com/questions/56938103/azure-usage-and-cost-of-resources-in-a-subscription/73666578#73666578)
