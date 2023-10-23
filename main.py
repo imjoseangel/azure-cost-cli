@@ -5,6 +5,7 @@ from __future__ import (division, absolute_import, print_function,
                         unicode_literals)
 
 from datetime import datetime, timezone, timedelta
+import json
 
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.costmanagement import CostManagementClient
@@ -56,7 +57,12 @@ query = QueryDefinition(type="ActualCost", timeframe="Custom",
 
 result = cost_client.query.usage(scope=scope, parameters=query)
 
-print(result)
+if result:
+    column_width = 80
+    print("Resource Name".ljust(column_width) + "Cost")
+    print("-" * (column_width * 2))
+    for data in result.as_dict()['rows']:
+        print(f'{data[2].split(".")[-1]:<{column_width}} {round(data[0])}')
 
 
 def main():
