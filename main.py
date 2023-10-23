@@ -18,6 +18,7 @@ from azure.mgmt.subscription import SubscriptionClient
 cost_client = CostManagementClient(credential=DefaultAzureCredential())
 COLUMN_WIDTH = 50
 
+
 def subscription_list():
     subscription_client = SubscriptionClient(credential=DefaultAzureCredential())
     sub_list = subscription_client.subscriptions.list()
