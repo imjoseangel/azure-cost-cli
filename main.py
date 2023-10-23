@@ -16,17 +16,16 @@ from azure.mgmt.subscription import SubscriptionClient
 
 
 cost_client = CostManagementClient(credential=DefaultAzureCredential())
-
+COLUMN_WIDTH = 50
 
 def subscription_list():
     subscription_client = SubscriptionClient(credential=DefaultAzureCredential())
     sub_list = subscription_client.subscriptions.list()
-    column_width = 40
 
-    print("Subscription ID".ljust(column_width) + "Display name")
-    print("-" * (column_width * 2))
+    print("Subscription ID".ljust(COLUMN_WIDTH) + "Display name")
+    print("-" * (COLUMN_WIDTH * 2))
     for group in list(sub_list):
-        print(f'{group.subscription_id:<{column_width}}{group.display_name}')
+        print(f'{group.subscription_id:<{COLUMN_WIDTH}}{group.display_name}')
 
 
 TIME_PERIOD_IN_PAST = 30
@@ -58,11 +57,10 @@ query = QueryDefinition(type="ActualCost", timeframe="Custom",
 result = cost_client.query.usage(scope=scope, parameters=query)
 
 if result:
-    column_width = 80
-    print("Resource Name".ljust(column_width) + "Cost")
-    print("-" * (column_width * 2))
+    print("Resource Name".ljust(COLUMN_WIDTH) + "Cost")
+    print("-" * (COLUMN_WIDTH * 2))
     for data in result.as_dict()['rows']:
-        print(f'{data[2].split(".")[-1]:<{column_width}} {round(data[0])}')
+        print(f'{data[2].split("/")[-1]:<{COLUMN_WIDTH}} {round(data[0])}')
 
 
 def main():
